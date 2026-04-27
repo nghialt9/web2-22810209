@@ -1,26 +1,8 @@
 services:
-  # 1. Ứng dụng PHP
   - type: web
-    name: php-app-justinlam
-    env: docker
-    plan: free
-    region: singapore # Chọn Singapore để tốc độ về VN nhanh nhất
-    envVars:
-      - key: DB_HOST
-        fromService:
-          name: mysql-db
-          type: pserv
-          property: host
-      - key: DB_PASSWORD
-        generateValue: true # Render tự tạo pass bảo mật
-
-  # 2. Database MySQL (Chạy bằng Docker)
-  - type: pserv
-    name: mysql-db
+    name: web2-22810209
     env: docker
     plan: free
     region: singapore
-    disk:
-      name: mysql-data
-      mountPath: /var/lib/mysql
-      sizeGB: 1 # Gắn ổ cứng để không mất data khi restart
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /indexa.php
