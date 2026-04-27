@@ -1,0 +1,23 @@
+(function () {
+    const p  = v => String(v).padStart(2, '0');
+    const p3 = v => String(v).padStart(3, '0');
+
+    function tickClient() {
+        const now = new Date();
+        document.getElementById('browser-time').textContent =
+            p(now.getDate())  + '/' + p(now.getMonth() + 1) + '/' + now.getFullYear() + ' ' +
+            p(now.getHours()) + ':' + p(now.getMinutes())   + ':' + p(now.getSeconds()) + '.' +
+            p3(now.getMilliseconds());
+    }
+    tickClient();
+    setInterval(tickClient, 1);
+
+    function tickServer() {
+        fetch('includes/time.php')
+            .then(r => r.json())
+            .then(d => { document.getElementById('server-time').textContent = d.time; })
+            .catch(() => {});
+    }
+    tickServer();
+    setInterval(tickServer, 1000);
+})();
