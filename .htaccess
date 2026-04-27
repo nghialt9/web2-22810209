@@ -1,5 +1,5 @@
 Options -Indexes
-DirectoryIndex indexa.php index.php
+DirectoryIndex index.php indexa.php 
 
 <IfModule mod_rewrite.c>
     RewriteEngine On

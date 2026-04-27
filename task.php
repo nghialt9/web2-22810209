@@ -23,8 +23,8 @@ $subtitle = trim(strip_tags($_GET['sub'] ?? ''));
         <div class="col-auto sidebar px-3" style="min-width:160px">
             <p class="menu-title">Main menu</p>
             <nav class="nav flex-column">
-                <a class="nav-link" href="indexa.php">Host Home</a>
-                <a class="nav-link active" href="indexb.php?bt=<?= urlencode($bt) ?>">Home</a>
+                <a class="nav-link" href="index.php">Host Home</a>
+                <a class="nav-link active" href="task.php?bt=<?= urlencode($bt) ?>">Home</a>
             </nav>
         </div>
 

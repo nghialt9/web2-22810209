@@ -1,7 +1,4 @@
-<!-- Home Page (indexa.php) -->
-<!-- Bắt đầu khai báo biến -->
 <?php
-// Tạo danh sách banner và chọn ngẫu nhiên một banner để hiển thị
 $banners = ['img/banner1.jpg', 'img/banner2.jpg', 'img/banner3.jpg'];
 $selectedBanner = $banners[rand(0, 2)];
 
@@ -10,12 +7,8 @@ $hoTen      = 'Lâm Trọng Nghĩa';
 $email      = 'lamtrongnghia1990@gmail.com';
 $noiCongTac = 'Trường ĐH Khoa học Tự nhiên – ĐHQG HCM';
 
-// Tạo danh sách chữ cái từ A đến Z để hiển thị các bài tập
 $letters = range('A', 'Z');
 ?>
-
-<!-- Hết khai báo biến -->
-
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -33,13 +26,11 @@ $letters = range('A', 'Z');
         <div class="col-auto sidebar px-3" style="min-width:160px">
             <p class="menu-title">Main menu</p>
             <nav class="nav flex-column">
-                <a class="nav-link" href="indexa.php">Home</a>
+                <a class="nav-link" href="index.php">Home</a>
                 <a class="nav-link" href="https://class.e-learning.vn" target="_blank">Moodle</a>
                 <a class="nav-link" href="https://docs.google.com/spreadsheets/d/1qiJMtk7jXoaSPgFI1_eHa4FaJ19X8A6p2q4HzitTHYg/edit?gid=0#gid=0" target="_blank">GSheet</a>
                 <a class="nav-link" href="https://www.facebook.com/groups/dttx.ltweb2.hk2.2526" target="_blank">FB Group</a>
                 <a class="nav-link" href="https://www.facebook.com/nghialt9/" target="_blank">My Facebook</a>
-                <a class="nav-link" href="https://web2-22810209.fly.dev/" target="_blank">My Website Fly.io</a>
-                <a class="nav-link" href="https://web2-22810209.onrender.com/" target="_blank">My Website Render.com</a>
             </nav>
         </div>
 
@@ -51,29 +42,23 @@ $letters = range('A', 'Z');
                 <img src="<?= htmlspecialchars($selectedBanner) ?>" alt="Banner LTW2">
             </div>
 
-            <!-- Nội dung 1: Thông tin sinh viên -->
+            <!-- Content 1: Student info -->
             <h5 class="mb-3">Thông tin sinh viên</h5>
             <table class="table table-bordered w-auto mb-3 info-table">
                 <tbody>
-                    <!-- dùng htmlspecialchars để bảo vệ dữ liệu -->
                     <tr><th>MSSV</th><td><?= htmlspecialchars($mssv) ?></td></tr>
                     <tr><th>Họ tên</th><td><?= htmlspecialchars($hoTen) ?></td></tr>
                     <tr><th>Email</th><td><?= htmlspecialchars($email) ?></td></tr>
                     <tr><th>Nơi công tác</th><td><?= htmlspecialchars($noiCongTac) ?></td></tr>
                 </tbody>
             </table>
-            <!-- Thêm ngày giờ hiện hành bằng cách gọi include -->
             <?php include 'includes/datetime.php'; ?>
 
-            <!-- Nội dung 2: Danh sách bài tập -->
+            <!-- Content 2: Homework list -->
             <h5 class="mt-4 mb-3">Danh sách bài tập</h5>
-
-            <!-- Duyệt qua danh sách chữ cái -->
             <?php foreach ($letters as $letter):
-                // Tạo tiêu đề phụ và URL cho mỗi bài tập dựa trên chữ cái nối chuỗi với '-2026'
                 $sub = 'Nội dung bài tập ' . $letter . '-2026';
-                // Tạo URL cho bài tập, ví dụ: baitap22810209/A-2026/indexb.php?bt=A&sub=Nội dung bài tập A-2026
-                $url = 'baitap22810209/' . $letter . '-2026/indexb.php?bt=' . urlencode($letter) . '&sub=' . urlencode($sub);
+                $url = 'task.php?bt=' . urlencode($letter) . '&sub=' . urlencode($sub);
             ?>
             <div class="bt-item">
                 <div class="bt-badge"><?= $letter ?></div>
