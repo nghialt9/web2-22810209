@@ -16,4 +16,4 @@ $_projectUrl  = str_ireplace($_docRoot, '', str_replace('\\', '/', dirname(__DIR
 
 <!-- Gán Time_URL để clock.js có thể gọi AJAX lấy thời gian từ time.php -->
 <script>window.TIME_URL = '<?= $_includesUrl ?>/time.php';</script>
-<script src="<?= $_projectUrl ?>/js/clock.js"></script>
+<script src="<?= $_projectUrl ?>/js/clock.js?v=<?= filemtime(__DIR__ . '/../js/clock.js') ?>"></script>

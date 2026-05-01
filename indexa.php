@@ -33,7 +33,7 @@ $urls = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LTW2 – <?= $mssv ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style.css?v=<?= filemtime(__DIR__ . '/css/style.css') ?>" rel="stylesheet">
 </head>
 <body>
 <div class="container-fluid p-0">
