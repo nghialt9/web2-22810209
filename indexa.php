@@ -12,6 +12,16 @@ $noiCongTac = 'Trường ĐH Khoa học Tự nhiên – ĐHQG HCM';
 
 // Tạo danh sách chữ cái từ A đến Z để hiển thị các bài tập
 $letters = range('A', 'Z');
+
+// Sub cố định cho từng bài tập đã có nội dung; letter nào chưa có sẽ dùng chuỗi tự sinh
+$subs = [
+    'A' => 'Bài Tập A - Demo TLI1',
+];
+
+// URL cố định cho từng bài tập đã có; letter nào chưa có sẽ dùng URL tự sinh
+$urls = [
+    'A' => 'baitap22810209/BaiTapA-DemoTLI12026/indexb.php',
+];
 ?>
 
 <!-- Hết khai báo biến -->
@@ -71,9 +81,8 @@ $letters = range('A', 'Z');
             <!-- Duyệt qua danh sách chữ cái -->
             <?php foreach ($letters as $letter):
                 // Tạo tiêu đề phụ và URL cho mỗi bài tập dựa trên chữ cái nối chuỗi với '-2026'
-                $sub = 'Nội dung bài tập ' . $letter . '-2026';
-                // Tạo URL cho bài tập, ví dụ: baitap22810209/A-2026/indexb.php?bt=A&sub=Nội dung bài tập A-2026
-                $url = 'baitap22810209/' . $letter . '-2026/indexb.php?bt=' . urlencode($letter) . '&sub=' . urlencode($sub);
+                $sub = $subs[$letter] ?? 'Nội dung bài tập ' . $letter . '-2026';
+                $url = $urls[$letter] ?? 'baitap22810209/' . $letter . '-2026/indexb.php?bt=' . urlencode($letter) . '&sub=' . urlencode($sub);
             ?>
             <div class="bt-item">
                 <div class="bt-badge"><?= $letter ?></div>
