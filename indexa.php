@@ -16,11 +16,13 @@ $letters = range('A', 'Z');
 // Sub cố định cho từng bài tập đã có nội dung; letter nào chưa có sẽ dùng chuỗi tự sinh
 $subs = [
     'A' => 'Bài Tập A - Demo TLI1',
+    'B' => 'Bài Tập B - Tuyến xe buýt Hàm Nghi',
 ];
 
 // URL cố định cho từng bài tập đã có; letter nào chưa có sẽ dùng URL tự sinh
 $urls = [
     'A' => 'baitap22810209/BaiTapA-DemoTLI12026/indexb.php',
+    'B' => 'baitap22810209/BaiTapB-BusRouter2026/indexb.php',
 ];
 ?>
 
