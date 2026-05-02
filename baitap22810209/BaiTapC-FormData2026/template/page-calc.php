@@ -37,7 +37,7 @@
     <div class="alert alert-danger d-flex align-items-center gap-2 mb-4 ">
         <i class="bi bi-x-square fs-5"></i>
         <span>
-            <?= htmlspecialchars($error) ?>
+            Vui lòng điền đầy đủ thông tin và chọn phép tính trước khi Submit.
         </span>
     </div>
     <?php endif; ?>
