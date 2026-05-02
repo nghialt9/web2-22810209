@@ -10,7 +10,22 @@
             <strong>Email:</strong> 22810209@student.hcmus.edu.vn
         </div>
     </div>
-    <?php if (!empty($result)): ?>
+
+    <!-- 
+        Vì empty() trong PHP trả về true cho tất cả giá trị falsy, bao gồm cả 0:
+        empty("")    // true
+        empty("0")   // true  ← chuỗi "0" cũng bị!
+        empty(0)     // true  ← 0 số nguyên
+        empty(0.0)   // true
+        empty(null)  // true
+        empty(false) // true
+        empty([])    // true
+        Nên khi kiểm tra dữ liệu từ form,
+        nếu dùng empty() sẽ không thể phân biệt được giữa "0" (chuỗi) hoặc 0 (số) với giá trị rỗng thực sự.
+        Do đó, cần dùng isset() để kiểm tra xem biến có tồn tại hay không,
+        và sau đó dùng trim() để loại bỏ khoảng trắng trước khi kiểm tra độ dài chuỗi.
+    -->
+    <?php if (isset($result) && $result !== null): ?>
     <!-- ===== KẾT QUẢ TÍNH TOÁN ===== -->
     <div class="alert alert-success mb-4">
         <div class="d-flex align-items-center gap-2 mb-1">
